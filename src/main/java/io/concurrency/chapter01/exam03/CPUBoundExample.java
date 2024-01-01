@@ -11,9 +11,11 @@ public class CPUBoundExample {
     public static void main(String[] args) throws InterruptedException {
 
         int numThreads = Runtime.getRuntime().availableProcessors();
+        // 쓰레드 생성 cpu당 1개씩 해야 병렬성 극대화.
         ExecutorService executorService = Executors.newFixedThreadPool(numThreads);
 
         long startTime2 = System.currentTimeMillis();
+        // 작업에 대한 결과가 담기는 클래스
         List<Future<?>> futures = new ArrayList<>();
 
         for (int i = 0; i < numThreads; i++) {

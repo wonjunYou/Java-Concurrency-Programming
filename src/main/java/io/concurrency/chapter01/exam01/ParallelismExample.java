@@ -16,6 +16,7 @@ public class ParallelismExample {
 
         // CPU 개수만큼 데이터를 병렬로 처리
         long startTime1 = System.currentTimeMillis();
+        // parallelStream() -> 각 작업을 각 쓰레드로 분할하여 동시 처리.
         long sum1 = data.parallelStream()
                 .mapToLong(i -> {
                     try {
