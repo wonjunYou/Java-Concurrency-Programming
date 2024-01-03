@@ -4,12 +4,15 @@ public class WaitingStateThreadExample {
 
     public static void main(String[] args) throws InterruptedException {
         final Object lock = new Object();
-        Thread thread = new Thread(() -> {
-            synchronized (lock) {
-                try {
-                    lock.wait();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                synchronized (lock) {
+                    try {
+                        lock.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });

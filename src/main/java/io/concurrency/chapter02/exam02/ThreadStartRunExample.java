@@ -11,10 +11,28 @@ public class ThreadStartRunExample {
             }
         });
 
+        Thread thread2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(Thread.currentThread().getName() + " :스레드 실행중..");
+            }
+        });
+
+        Thread thread3 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(Thread.currentThread().getName() + " :스레드 실행중..");
+            }
+        });
+
         thread.start();
+        thread2.start();
+        thread3.start();
+
 //        thread.run();
 //        myRunnable.run();
 
+        System.out.println(Thread.currentThread().getName() + ": 메인 스레드 종료");
     }
 
     static class MyRunnable implements Runnable{
