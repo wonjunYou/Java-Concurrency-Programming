@@ -13,7 +13,7 @@ public class InterruptedJoinExample {
                     Thread.sleep(1000);
                 }
             } catch (InterruptedException e) {
-                mainThread.interrupt();
+                // mainThread.interrupt();
                 System.out.println("긴 작업 스레드가 인터럽트 되었습니다.");
             }
         });
@@ -26,6 +26,7 @@ public class InterruptedJoinExample {
                 Thread.sleep(2000);
                 longRunningThread.interrupt();
             } catch (InterruptedException e) {
+                System.out.println("메인 스레드가 인터럽트 되었습니다.");
                 throw new RuntimeException(e);
             }
         });

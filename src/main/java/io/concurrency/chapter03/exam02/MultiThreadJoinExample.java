@@ -28,10 +28,14 @@ public class MultiThreadJoinExample {
 
         System.out.println("메인 스레드가 다른 스레드의 완료를 기다립니다.");
 
-        thread1.join();
-        thread2.join();
+        try {
+            thread1.join();
+            thread2.join();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
 
         System.out.println("메인 스레드가 계속 진행합니다");
-
     }
 }
